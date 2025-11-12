@@ -1,0 +1,25 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:redisdiary}
+    username: ${DB_USER:postgres}
+    password: ${DB_PASS:postgres}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+
+server:
+  port: 8080
+
+security:
+  jwt:
+    secret: ${JWT_SECRET:change-me-in-prod}
+    expiration-ms: 86400000
+
+openai:
+  api-base: ${OPENAI_API_BASE:https://api.openai.com/v1}
+  model: ${OPENAI_MODEL:text-embedding-3-small}
